@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:kieserver="http://jbpm.org/">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-light bg-light" style="display:block !important;">
+    <a class="navbar-brand" href="http://jbpm.org">
+        <img src="/img/jbpmlogo.png" width="85" height="39" alt="">
+    </a>
+    <a class="navbar-brand" href="https://ifttt.com/discover">
+        <img src="/img/iftttlogo.png" width="60" height="45" alt="">
+    </a>
+</nav>
+<div class="container">
+    <h2>Driver Pickup Request</h2>
+    <form action="#" th:action="@{/demo}" th:object="${carpickupinfo}" method="post">
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control"
+                   id="firstName"
+                   placeholder="Enter first name"
+                   name="firstName"
+                   th:field="*{firstName}">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="form-control"
+                   id="lastName"
+                   placeholder="Enter last name"
+                   name="lastName"
+                   th:field="*{lastName}">
+        </div>
+        <div class="form-group">
+            <label for="address">Enter pickup address:</label>
+            <textarea class="form-control rounded-0" id="address" rows="3" th:field="*{address}"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-
 @Configuration("kieServerSecurity")
 @EnableWebSecurity
 public class DefaultWebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -15,11 +14,12 @@ public class DefaultWebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        .csrf().disable()
-        .authorizeRequests()
-        .antMatchers("/rest/*").authenticated()
-        .and()
-        .httpBasic();
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/rest/*").authenticated()
+                .and()
+                .httpBasic()
+                .and().headers().frameOptions().sameOrigin();
     }
 
     @Autowired

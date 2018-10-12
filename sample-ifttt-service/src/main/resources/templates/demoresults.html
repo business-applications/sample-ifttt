@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:kieserver="http://jbpm.org/">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-light bg-light" style="display:block !important;">
+    <a class="navbar-brand" href="http://jbpm.org">
+        <img src="/img/jbpmlogo.png" width="85" height="39" alt="">
+    </a>
+    <a class="navbar-brand" href="https://ifttt.com/discover">
+        <img src="/img/iftttlogo.png" width="60" height="45" alt="">
+    </a>
+</nav>
+
+<kieserver:startprocess processid="${processid}"
+                        containerid="${containerid}"
+                        processinputs="${processinputs}"/>
+
+<div class="container">
+    <h1>Pickup request has been sent!</h1>
+    <p th:text="'First Name: ' + ${carpickupinfo.firstName}"/>
+    <p th:text="'Last Name: ' + ${carpickupinfo.lastName}"/>
+    <p th:text="'Address: ' + ${carpickupinfo.address}"/>
+</div>
+
+</body>
+</html>
