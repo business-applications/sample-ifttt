@@ -44,12 +44,46 @@ And two actions (one that sens a SMS and one that opens Google Maps):
 ![Applet action2](img/demoaction2.png?raw=true)
 
 
-Same the applet and turn it on in IFTTT:
+Save the applet and turn it on in IFTTT:
 
 ![Turn on applet](img/turnonapplet.png?raw=true)
 
 4. Download the IFTTT app on your phone. Set it up with same account as you registered with in step 3
 and give it permissions to send SMS on your phone.
+
+5. Update the Workitem Handler with your IFTTT access key:
+in sample-ifttt-kjar/src/main/resources/META-INF/kie-deployment-descriptor.xml
+
+replace the YOUR_ACCESS_KEY_HERE:
+
+```xml
+<work-item-handlers>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new org.jbpm.process.workitem.ifttt.IFTTTWorkitemHandler("YOUR_ACCESS_KEY_HERE")</identifier>
+            <parameters/>
+            <name>IFTTTCall</name>
+        </work-item-handler>
+    </work-item-handlers>
+```
+
+
+with the real access key you get after registering on the IFTTT platform.
+
+6. go to sample-ifttt-service and start the appliaction:
+
+for Windows users:
+
+```
+launch.bat clean install
+```
+
+or for Unix/Linux users
+
+```
+chmod 755 launch.bat (only has to be done once)
+./launch.sh clean install
+```
 
 ## Accessing your application
 
@@ -66,3 +100,8 @@ Press Submit.
 
 Once the process completes, a SMS should be sent to your phone and Google Maps should be opened 
 with driving directions to the location entered in the form.
+
+![Turn on applet](img/demoresults.png?raw=true)
+
+![Turn on applet](img/sms.png?raw=true)
+

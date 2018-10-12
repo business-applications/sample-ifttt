@@ -12,7 +12,7 @@
     <work-item-handlers>
         <work-item-handler>
             <resolver>mvel</resolver>
-            <identifier>new org.jbpm.process.workitem.ifttt.IFTTTWorkitemHandler("cqtzjP8BVbRGgZTsqNd4wb")</identifier>
+            <identifier>new org.jbpm.process.workitem.ifttt.IFTTTWorkitemHandler(""YOUR_ACCESS_KEY_HERE"")</identifier>
             <parameters/>
             <name>IFTTTCall</name>
         </work-item-handler>
